@@ -1,5 +1,5 @@
 
-# add_titles_loop.py
+# Цикл для добавления заголовков
 
 def main():
 
