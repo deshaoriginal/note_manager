@@ -1,9 +1,9 @@
 # Отображаем текущий статус заметки
-from random import choice
 
 
 def dispaly_current_status(status):
     print(f'Текущий статус заметки: \'{status}\'')
+
 
 # Запрашиваем у пользователя новый статус заметки
 
@@ -16,7 +16,7 @@ def get_new_status():
 
     while True:
         print("\nВыберите новый статус заметки:")
-        for key,value in status_options.items():
+        for key, value in status_options.items():
             print(f"{key}, {value}")
         choice = input("Ваш выбор: ")
         try:
@@ -28,13 +28,16 @@ def get_new_status():
         except ValueError:
             print("Ошибка: введите числовое значение.")
 
+
 # Основная функция программы для обновления статуса заметки.
 
 def update_note_status():
-    current_status = "в процессе" # Пример начального статуса заметки
+    current_status = "в процессе"  # Пример начального статуса заметки
     dispaly_current_status(current_status)
     new_status = get_new_status()
     current_status = new_status
     print(f"Статус заметки успешно обновлен на: \"{current_status}\"")
+
+
 if __name__ == "__main__":
     update_note_status()
