@@ -35,7 +35,7 @@ def display_notes(notes):
 def main():
     notes = []
     while True:
-        print("Добро пожаловать в менеджер заметок! Вы можетее добавить новую заметку.")
+        print("Добро пожаловать в менеджер заметок! Вы можете добавить новую заметку.")
         note = block_note()
         notes.append(note)
         another = input("хотите добавить новую заметку? (да/нет): ")
