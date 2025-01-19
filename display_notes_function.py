@@ -1,50 +1,33 @@
-from colorama import init, Fore, Back
+def display_page(notes, page):
+    start_index = 0 + page * 5
+    end_index = 5 + page * 5
+                                # notes[0:5] - первая страница
+                                # notes[5:10] - вторая страница
+    for index, note in enumerate(notes[start_index:end_index], start=1):  # f строки f string
+        print(f"""
+        Номер заметки: {index}
+        Имя пользователя: {note["user_name"]}
+        Заголовок: {note["title"]}
+        """)
+        print("_" * 80)  # str * int
 
-init(autoreset=True)
-
-# Добавили библиотеку Colorama
-
-def display_notes(notes):
+def display_notes(notes, page_number=0):
     if not notes:
-        print(Fore.RED + "У вас нет сохраненных заметок.")
+        print("Список заметок пуст")
     else:
-        print(Fore.GREEN + "Список заметок:\n" + Back.YELLOW + "-" * 30)
-        for index, note in enumerate(notes, start = 1):
-            print(Fore.GREEN + f"Заметка №{index}:\n"
-                  f"Имя пользователя: {note['user_name']}\n"
-                  f"Заголовок: {note['title']}\n"
-                  f"Описание: {note['content']}\n"
-                  f"Статус: {note['status']}\n"
-                  f"Дата создания: {note['created_date']}\n"
-                  f"Дата истечения заметки: {note['issue_date']}\n"
-                  + Back.YELLOW + "-" * 30)
-
-# Пример использования функции display_notes
+        display_page(notes, page_number)
 
 if __name__ == '__main__':
-    test_notes  = [
-        {
-            "user_name": "Алексей",
-            "title": "Список покупок",
-            "content": "Купить продукты на неделю",
-            "status": "новая",
-            "created_date": "27-11-2024",
-            "issue_date": "30-11-2024"
-        },
-        {
-            "user_name": "Мария",
-            "title": "Учеба",
-            "content": "Подготовиться к экзамену",
-            "status": "в процессе",
-            "created_date": "25-11-2024",
-            "issue_date": "01-12-2024"
-        }
+    notes = [
+        {"user_name": "1", "title": "Y", "status": "F"},
+        {"user_name": "2", "title": "CV"},
+        {"user_name": "3", "title": "CV"},
+        {"user_name": "4", "title": "CV"},
+        {"user_name": "5", "title": "CV"},
+        {"user_name": "6", "title": "CV"},
+        {"user_name": "7", "title": "CV"},
+        {"user_name": "8", "title": "CV"},
+        {"user_name": "9", "title": "CV"},
+        {"user_name": "10", "title": "CV"},
     ]
-
-display_notes([])
-
-# Вывод пустых заметок
-
-display_notes(test_notes)
-
-# Вывод примерных тестовых заметок
+    display_notes(notes=notes, page_number=1)
