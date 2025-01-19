@@ -1,7 +1,7 @@
 import datetime
 
 dt = datetime.datetime.now()
-formatted = dt.strftime('%d.%m.%Y')
+created_date = dt.strftime('%d.%m.%Y')
 
 def save_notes_to_file():
     
@@ -16,7 +16,7 @@ def save_notes_to_file():
     my_file.write(f"Заголовок: {title}\n")
     my_file.write(f"Описание заметки: {content}\n")
     my_file.write(f"Статус заметки: {status}\n")
-    my_file.write(f"Дата создания заметки: {formatted}\n")
+    my_file.write(f"Дата создания заметки: {created_date}\n")
     my_file.write(f"Истечение заметки: {issue_date}\n")
     my_file.close()
 
