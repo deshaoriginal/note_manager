@@ -16,9 +16,11 @@ def delete_notes(notes, criterion):
     deleted_count = original_count - len(notes)
     if deleted_count == 0:
         print("Заметок с таким именем пользователя или заголовком не найдено.")
+
     else:
         print(f"Успешно удалено {deleted_count} заметок. Остались следующие заметки:")
         display_notes(notes)
+
 
 def main():
 
