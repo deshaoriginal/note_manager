@@ -25,6 +25,7 @@ def load_notes_from_file(filename):
                     note[key] = value.strip()
             if note:
                 notes.append(note)
+        file.close()
 
     except FileNotFoundError:
         print(f"Ошибка файл '{filename}' не найден. Файл создан.")
