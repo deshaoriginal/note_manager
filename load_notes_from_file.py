@@ -32,6 +32,8 @@ def load_notes_from_file(filename):
         file = open('filename.txt', 'w+', encoding='utf-8')
         if os.stat('filename.txt').st_size == 0:
             print('Файл пустой')
+    except UnicodeDecodeError:
+        print(f"Ошибка при чтении файла '{filename}'. Проверьте его содержимое.")
     except Exception as e:
         print(f"Ошибка при чтении файла: {str(e)}")
     return notes
