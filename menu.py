@@ -18,8 +18,7 @@ def delete_note(notes):
         print("Заметок с таким именем пользователя не найдено.")
 
     else:
-        print(f"Успешно удалено {deleted_count} заметок. Остались следующие заметки:")
-        delete_note(notes)
+        print(f"Успешно удалено {deleted_count} заметка.")
 
 
 def display_menu(notes):
