@@ -1,12 +1,13 @@
+import  os
 
 def load_notes_from_file(filename):
     notes = []
     try:
-        with open(filename, 'r', encoding='utf-8') as file:
+        with open('filename.txt', 'r', encoding='utf-8') as file:
             note = {}
             for line in file:
                 line = line.strip()
-                if line == '---':
+                if line == '---------------------':
                     if note:
                         notes.append(note)
                         note = {}
@@ -26,7 +27,10 @@ def load_notes_from_file(filename):
                 notes.append(note)
 
     except FileNotFoundError:
-        print(f"Ошибка файл '{filename}' не найден.")
+        print(f"Ошибка файл '{filename}' не найден. Файл создан.")
+        file = open('filename.txt', 'w+', encoding='utf-8')
+        if os.stat('filename.txt').st_size == 0:
+            print('Файл пустой')
     except Exception as e:
         print(f"Ошибка при чтении файла: {str(e)}")
     return notes

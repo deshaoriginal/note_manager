@@ -1,23 +1,28 @@
-import datetime
 
-dt = datetime.datetime.now()
-created_date = dt.strftime('%d.%m.%Y')
-
-def save_notes_to_file():
+def save_notes_to_file(notes, filename):
     
-    my_file = open('filename.txt', 'w+', encoding='utf-8')
-    user_name = input("Введите имя пользователя: ")
-    title = input("Введите заголовок заметки: ")
-    content = input("Введите описание заметки: ")
-    status = input("Введите статус заметки (Новая, Активна, Завершена): ")
-    issue_date = input("Введите дату истечения заметки (день.месяц.год): ")
+    with open('filename.txt', 'w+', encoding='utf-8') as file:
+        for note in notes:
 
-    my_file.write(f"Имя пользователя: {user_name}\n")
-    my_file.write(f"Заголовок: {title}\n")
-    my_file.write(f"Описание заметки: {content}\n")
-    my_file.write(f"Статус заметки: {status}\n")
-    my_file.write(f"Дата создания заметки: {created_date}\n")
-    my_file.write(f"Истечение заметки: {issue_date}\n")
-    my_file.close()
+            file.write(f"Имя пользователя: {note.get('user_name', 'Не указано')}\n")
+            file.write(f"Заголовок: {note.get('title', 'Без заголовка')}\n")
+            file.write(f"Описание заметки: {note.get('content', 'Без описания')}\n")
+            file.write(f"Статус заметки: {note.get('status', 'Без статуса')}\n")
+            file.write(f"Дата создания заметки: {note.get('created_date', 'Не указана')}\n")
+            file.write(f"Истечение заметки: {note.get('issue_date', 'Не указано')}\n")
+            file.write("---------------------\n")
 
-save_notes_to_file()
+    file.close()
+
+# Пример использования функции
+notes = [
+    {
+        "user_name": "Денис",
+        "title": "продукты",
+        "content": "купить продукты на неделю",
+        "status": "новая",
+        "created_date": "20.1.2025",
+        "issue_date": "23.1.2025"
+    }
+]
+save_notes_to_file(notes, 'filename.txt')
