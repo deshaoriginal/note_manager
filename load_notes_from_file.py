@@ -38,6 +38,7 @@ def load_notes_from_file(filename):
         print(f"Ошибка при чтении файла: {str(e)}")
     return notes
 
-filename = 'filename.txt'
-notes = load_notes_from_file(filename)
-print(notes)
+if __name__ == '__main__':
+    filename = 'filename.txt'
+    notes = load_notes_from_file(filename)
+    print(notes)
