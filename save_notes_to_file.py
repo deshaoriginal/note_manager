@@ -20,24 +20,25 @@ def save_notes_to_file(notes, filename):
     return notes
 
 # Пример использования функции
-notes = [
-    {
-        "user_name": "Денис",
-        "title": "продукты",
-        "content": "купить продукты на неделю",
-        "status": "новая",
-        "created_date": "20.1.2025",
-        "issue_date": "23.1.2025"
-    },
-    {
-        "user_name": "Алексей",
-        "title": "Список покупок",
-        "content": "Купить продукты",
-        "status": "новая",
-        "created_date": "27.11.2024",
-        "issue_date": "30.11.2024"
 
-    }
-]
 if __name__ == '__main__':
+    notes = [
+        {
+            "user_name": "Денис",
+            "title": "продукты",
+            "content": "купить продукты на неделю",
+            "status": "новая",
+            "created_date": "20.1.2025",
+            "issue_date": "23.1.2025"
+        },
+        {
+            "user_name": "Алексей",
+            "title": "Список покупок",
+            "content": "Купить продукты",
+            "status": "новая",
+            "created_date": "27.11.2024",
+            "issue_date": "30.11.2024"
+
+        }
+    ]
     save_notes_to_file(notes, 'filename.txt')
