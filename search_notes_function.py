@@ -60,9 +60,10 @@ notes = [
 
 # Вызов функций для примера
 
-search_notes(notes, keyword = 'покупок')
-search_notes(notes, status = 'в процессе')
-search_notes(notes, keyword = 'работы', status = 'выполнено')
-search_notes([])
-search_notes(notes, keyword = 'больница')
+if __name__ == '__main__':
+    search_notes(notes, keyword = 'покупок')
+    search_notes(notes, status = 'в процессе')
+    search_notes(notes, keyword = 'работы', status = 'выполнено')
+    search_notes([])
+    search_notes(notes, keyword = 'больница')
 
